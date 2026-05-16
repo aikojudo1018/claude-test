@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東京女子体育大学 柔道部</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #1a1a2e;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    header .logo .emblem {
+      width: 60px;
+      height: 60px;
+      background-color: #c8a400;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: bold;
+      color: #1a1a2e;
+    }
+
+    header .logo .title h1 {
+      font-size: 1.4rem;
+      letter-spacing: 0.05em;
+    }
+
+    header .logo .title p {
+      font-size: 0.85rem;
+      color: #c8a400;
+      margin-top: 2px;
+    }
+
+    nav {
+      background-color: #16213e;
+      display: flex;
+      gap: 0;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      padding: 14px 24px;
+      display: block;
+      font-size: 0.9rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #c8a400;
+      color: #1a1a2e;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    .hero h2 {
+      font-size: 2.4rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #c8a400;
+      letter-spacing: 0.05em;
+    }
+
+    .hero .motto {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      border: 2px solid #c8a400;
+      display: inline-block;
+      padding: 10px 30px;
+      border-radius: 4px;
+      letter-spacing: 0.15em;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      border-left: 5px solid #c8a400;
+      padding-left: 12px;
+      margin-bottom: 24px;
+      color: #1a1a2e;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card h3 .icon {
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: #555;
+    }
+
+    .news-section {
+      margin-bottom: 48px;
+    }
+
+    .news-list {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 24px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .news-item:last-child {
+      border-bottom: none;
+    }
+
+    .news-item .date {
+      font-size: 0.85rem;
+      color: #999;
+      white-space: nowrap;
+      min-width: 90px;
+    }
+
+    .news-item .badge {
+      font-size: 0.75rem;
+      background-color: #1a1a2e;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .news-item .badge.gold {
+      background-color: #c8a400;
+      color: #1a1a2e;
+    }
+
+    .news-item .text {
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    .info-section {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 24px;
+      margin-bottom: 48px;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .info-table th, .info-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    .info-table th {
+      width: 150px;
+      color: #888;
+      font-weight: normal;
+    }
+
+    .info-table tr:last-child th,
+    .info-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    footer {
+      background-color: #1a1a2e;
+      color: #aaa;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+
+    footer span {
+      color: #c8a400;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <div class="emblem">柔</div>
+      <div class="title">
+        <h1>東京女子体育大学 柔道部</h1>
+        <p>Tokyo Women's College of Physical Education – Judo Club</p>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#">ホーム</a>
+    <a href="#">部について</a>
+    <a href="#">活動・練習</a>
+    <a href="#">試合結果</a>
+    <a href="#">部員紹介</a>
+    <a href="#">お問い合わせ</a>
+  </nav>
+
+  <section class="hero">
+    <h2>東京女子体育大学 柔道部</h2>
+    <p>心・技・体を磨き、日々の稽古に精進する</p>
+    <div class="motto">「礼に始まり、礼に終わる」</div>
+  </section>
+
+  <main>
+
+    <section class="cards">
+      <div class="card">
+        <h3><span class="icon">🥋</span> 部の紹介</h3>
+        <p>東京女子体育大学柔道部は、礼儀・礼節を重んじながら技術向上と人間形成を目指しています。全国大会出場を目標に、日々厳しい稽古に取り組んでいます。</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">📅</span> 練習日程</h3>
+        <p>月曜日〜土曜日（午後）<br>
+        場所：大学内 柔道場<br>
+        ※試合前は日曜日も実施する場合があります。</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🏆</span> 目標</h3>
+        <p>全日本学生柔道優勝大会をはじめとする各種大会での上位入賞を目指し、一人ひとりの技術と精神力を高めています。</p>
+      </div>
+    </section>
+
+    <section class="news-section">
+      <h2 class="section-title">最新情報</h2>
+      <div class="news-list">
+        <div class="news-item">
+          <span class="date">2026.05.10</span>
+          <span class="badge gold">試合結果</span>
+          <span class="text">関東学生柔道体重別選手権大会にて、3名が入賞しました。</span>
+        </div>
+        <div class="news-item">
+          <span class="date">2026.04.20</span>
+          <span class="badge">お知らせ</span>
+          <span class="text">新入部員を迎え、2026年度の活動を開始しました。</span>
+        </div>
+        <div class="news-item">
+          <span class="date">2026.03.15</span>
+          <span class="badge">お知らせ</span>
+          <span class="text">春季強化合宿を実施しました（3泊4日）。</span>
+        </div>
+        <div class="news-item">
+          <span class="date">2026.02.01</span>
+          <span class="badge gold">試合結果</span>
+          <span class="text">東京都学生柔道体重別選手権大会にて、準優勝を獲得しました。</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">部員募集</h2>
+      <div class="info-section">
+        <table class="info-table">
+          <tr>
+            <th>対象</th>
+            <td>東京女子体育大学に在籍する学生（経験者・初心者問わず歓迎）</td>
+          </tr>
+          <tr>
+            <th>練習場所</th>
+            <td>東京女子体育大学 柔道場</td>
+          </tr>
+          <tr>
+            <th>練習時間</th>
+            <td>月〜土 16:00〜19:00（変更になる場合があります）</td>
+          </tr>
+          <tr>
+            <th>お問い合わせ</th>
+            <td>大学体育局 柔道部顧問まで</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 <span>東京女子体育大学 柔道部</span>. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
